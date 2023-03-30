@@ -1,6 +1,8 @@
 const express =require("express")
 const app=express()
 app.use(express.json())
+const cors=require("cors")
+app.use(cors())
 const  {connection}=require("./database/db")
 require("dotenv").config()
 
@@ -10,7 +12,7 @@ app.get("/",(req,res)=>{
 
 const {userRouter}=require("./controller/user.rout")
 // register router calling
-app.use("/user",userRouter)
+app.use("/users",userRouter)
 
 
 

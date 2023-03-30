@@ -31,7 +31,7 @@ COMMON RULES
     font-family: "Trip Sans VF", "Trip Sans Med", sans-serif;
   }
   
-  button {
+ header a {
     border: none;
     background-color: var(--black);
     color: var(--white);
@@ -41,6 +41,7 @@ COMMON RULES
     padding: 10px 16px;
     cursor: pointer;
     outline: none;
+    text-decoration: none;
   }
   
   button:hover {
@@ -84,14 +85,14 @@ COMMON RULES
   
   header > div > div {
     display: flex;
-    border: 2px solid red;
+   
   }
   
   header nav {
     display: flex;
     align-items: center;
     font-family: "Trip Sans Med", sans-serif;
-    border: 1px solid red;
+  
   }
   
   header nav div {
@@ -126,7 +127,7 @@ COMMON RULES
     margin-top: 90px;
     display: flex;
     justify-content: center;
-    border: 2px solid red;
+
   }
   
   main nav {
@@ -137,7 +138,6 @@ COMMON RULES
     font-size: 16px;
     line-height: 20px;
 
-    border: 2px solid green;
     
   }
   

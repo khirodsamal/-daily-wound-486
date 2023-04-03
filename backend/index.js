@@ -14,7 +14,11 @@ const {userRouter}=require("./controller/user.rout")
 // register router calling
 app.use("/users",userRouter)
 
+const {resrout}=require("./controller/restaurant.rout")
+app.use("/restaurant",resrout)
 
+const {adminRouter}=require("./controller/adminrout")
+app.use("/admin",adminRouter)
 
 app.listen(process.env.port,async()=>{
   

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #adminlogin{
+            display: flex;
+            flex-direction:column;
+            width: 20%;
+            margin: auto;
+            padding: 30px;
+            background-color: rgb(33, 211, 243);
+            margin-top: 80px;
+        
+        }
+        #adminlogin input{
+            height: 30px;
+            margin-bottom: 8px;
+        }
+        #adminlogin button{
+            height:30px ;
+            background-color: red;
+            color: white;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+      
+    <form action="" id="adminlogin">
+        <input type="text" id="adminemail" placeholder="email">
+        <input type="text" id="adminpassword" placeholder="password">
+        <button id="adminloginbtn">login</button>
+    </form>
+</body>
+</html>
+<script>
+    const signinform = document.getElementById("adminlogin");
+const signinemail = document.getElementById("adminemail");
+const signinpassword = document.getElementById("sadminpassword");
+
+signinform.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let obj = {
+    email: adminemail.value,
+    password: adminpassword.value
+  };
+
+  fetch("http://localhost:9900/admin/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(obj)
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    if (data.token) {
+      localStorage.setItem("admintoken", data.token);
+    }
+    alert(data.message);
+    if(data.message=="login successfull"){
+        window.location.assign("admin.html");
+    }
+    
+  })
+  .catch(err => {
+    console.log(err);
+  });
+});
+</script>
